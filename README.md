@@ -1,0 +1,1 @@
+Random JavaScript made simple.

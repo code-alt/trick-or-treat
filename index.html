@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>A totally lovely Trick or Treat!</title>
+  </head>  
+  <body>
+    <script>
+function random(max, useCorrect) {
+  if (useCorrect == null || useCorrect == undefined || useCorrect == false) {
+    return Math.floor(Math.random() * max);
+  } else {
+    return Math.floor(Math.random() * max) + 1;
+  }
+}
+      var isTrick = random(2, true);
+      window.onload = function () {
+        var randomNum = random(4, true);
+        document.getElementById("house").src = 'https://cdn.glitch.com/ed6dad3c-2064-442a-82d8-59515aa937ad%2Fhouse' + randomNum + '.png';
+        if (isTrick == 2) {isTrick = false}
+        if (isTrick == 1) {isTrick = true}
+      }
+      
+      function refresh() {
+        window.location = window.location;
+      }
+      
+      function Trick() {
+        if (isTrick == true) {
+          alert("Woaaaah.... You made the right choice. If you picked treat, you would've fallen for that person's trap. Let's do this again!")
+          refresh()
+        } else {
+          alert("That guy was nice, and you've created an unpleasant situation... Let's try again!")
+          refresh()
+        }
+      }
+      var candies = localStorage.getItem('candies');
+      if (candies == null) {candies = 0};
+      function Treat() {
+        if (isTrick == false) {
+          alert("Hey, nice! You got 1 piece of candy along with your " + candies + " pieces of candy. Cool! Let's do it again!");
+          candies++;
+          localStorage.setItem('candies', candies)
+          refresh()
+        } else {
+          alert("That person was quite mean, you have fallen from that trap... Let's try again!")
+          refresh()
+        }
+      }
+    </script>
+    <img id="house">
+    <button style="padding:10px;background:#424242;color:white;cursor:pointer;border:0;outline:none;font-size:96px;font-family:monospace;position:absolute;top:300px;left:10px;"
+  onclick="Trick();">
+      Trick
+    </button>
+    <button style="padding:10px;background:#424242;color:white;cursor:pointer;border:0;outline:none;font-size:96px;font-family:monospace;position:absolute;top:500px;left:10px;"
+  onclick="Treat();">
+      Treat
+    </button>
+  </body>
+</html>
