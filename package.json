@@ -1,0 +1,13 @@
+{
+  "name": "trick-or-treat",
+  "main": "./index.js",
+  "engines": {
+    "node": "14.x"
+  },
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

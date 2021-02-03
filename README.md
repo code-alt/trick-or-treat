@@ -1,1 +1,1 @@
-Hehe. Try cloning and playing this "game!"
+Random JavaScript made simple.
